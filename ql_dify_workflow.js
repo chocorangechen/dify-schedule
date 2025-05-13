@@ -6,7 +6,7 @@
   脚本兼容: Node.js
   ***********************************************************
  */
-// import notify from "./notify.js";
+import notify from "./sendNotify.js";
 import { WorkflowClient } from "./sdk/dify.js";
 
 const $ = new Env("Dify-定时工作流");
@@ -18,7 +18,7 @@ if (process.env.DIFY_TOKENS) {
   } else if (process.env.DIFY_TOKENS.indexOf("\n") > -1) {
     tokensArr = process.env.DIFY_TOKENS.split("\n");
   } else {
-    CookieJJs = [process.env.DIFY_TOKENS];
+    tokensArr = [process.env.DIFY_TOKENS];
   }
 }
 tokensArr = [...new Set(tokensArr.filter((item) => !!item))];
